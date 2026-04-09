@@ -47,6 +47,7 @@
             lstOrder = new ListBox();
             btnOrder = new Button();
             btnReset = new Button();
+            lblError = new Label();
             groupMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picChicken).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBulGogi).BeginInit();
@@ -122,9 +123,9 @@
             rdoChickenBurger.Name = "rdoChickenBurger";
             rdoChickenBurger.Size = new Size(106, 29);
             rdoChickenBurger.TabIndex = 2;
-            rdoChickenBurger.TabStop = true;
             rdoChickenBurger.Text = "치킨버거";
             rdoChickenBurger.UseVisualStyleBackColor = true;
+            rdoChickenBurger.CheckedChanged += rdoChickenBurger_CheckedChanged;
             // 
             // rdoBulgogiBurger
             // 
@@ -135,9 +136,9 @@
             rdoBulgogiBurger.Name = "rdoBulgogiBurger";
             rdoBulgogiBurger.Size = new Size(125, 29);
             rdoBulgogiBurger.TabIndex = 1;
-            rdoBulgogiBurger.TabStop = true;
             rdoBulgogiBurger.Text = "불고기버거";
             rdoBulgogiBurger.UseVisualStyleBackColor = true;
+            rdoBulgogiBurger.CheckedChanged += rdoBulgogiBurger_CheckedChanged;
             // 
             // rdoHamBurger
             // 
@@ -148,9 +149,9 @@
             rdoHamBurger.Name = "rdoHamBurger";
             rdoHamBurger.Size = new Size(87, 29);
             rdoHamBurger.TabIndex = 0;
-            rdoHamBurger.TabStop = true;
             rdoHamBurger.Text = "햄버거";
             rdoHamBurger.UseVisualStyleBackColor = true;
+            rdoHamBurger.CheckedChanged += rdoHamBurger_CheckedChanged;
             // 
             // groupOption
             // 
@@ -166,7 +167,6 @@
             groupOption.TabIndex = 2;
             groupOption.TabStop = false;
             groupOption.Text = "추가 옵션";
-            groupOption.Enter += groupBox2_Enter;
             // 
             // chkSauce
             // 
@@ -255,7 +255,7 @@
             btnOrder.BackColor = Color.Lime;
             btnOrder.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnOrder.ForeColor = Color.Black;
-            btnOrder.Location = new Point(462, 377);
+            btnOrder.Location = new Point(462, 382);
             btnOrder.Name = "btnOrder";
             btnOrder.Size = new Size(118, 46);
             btnOrder.TabIndex = 3;
@@ -268,7 +268,7 @@
             btnReset.BackColor = Color.Red;
             btnReset.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnReset.ForeColor = Color.Black;
-            btnReset.Location = new Point(586, 377);
+            btnReset.Location = new Point(586, 382);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(114, 46);
             btnReset.TabIndex = 4;
@@ -276,11 +276,24 @@
             btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += btnReset_Click;
             // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("맑은 고딕", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 129);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(497, 358);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(186, 21);
+            lblError.TabIndex = 5;
+            lblError.Text = "선택된 메뉴가 없습니다.";
+            lblError.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(763, 450);
+            Controls.Add(lblError);
             Controls.Add(btnReset);
             Controls.Add(btnOrder);
             Controls.Add(grouplistTotal);
@@ -322,5 +335,6 @@
         private Button btnOrder;
         private Button btnReset;
         private CheckBox chkPotato;
+        private Label lblError;
     }
 }

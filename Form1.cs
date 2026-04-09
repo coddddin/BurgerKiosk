@@ -9,10 +9,7 @@ namespace BurgerKiosk
             InitializeComponent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
-        }
 
         private void lstOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -22,6 +19,31 @@ namespace BurgerKiosk
         private void btnOrder_Click(object sender, EventArgs e)
         {
             int totalCost = 0;
+
+            bool isSelected = false;
+
+            // 1. 그룹박스 내의 라디오 버튼들 중 하나라도 체크되었는지 확인
+            foreach (Control control in groupMenu.Controls)
+            {
+                if (control is System.Windows.Forms.RadioButton rb && rb.Checked)
+                {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            if (isSelected)
+            {
+                lblError.Visible = false;
+            }
+            else
+            {
+
+                lblError.Visible = true;
+                return;
+            }
+
+
 
             if (rdoHamBurger.Checked)
             {
@@ -73,6 +95,31 @@ namespace BurgerKiosk
             chkSauce.Checked = false;
             lstOrder.Items.Clear();
             lblTotalCost.Text = "총 금액: 0원";
+            lblError.Visible = false;
+        }
+
+        private void rdoHamBurger_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoHamBurger.Checked)
+            {
+                lblError.Visible = false;
+            }
+        }
+
+        private void rdoBulgogiBurger_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoBulgogiBurger.Checked)
+            {
+                lblError.Visible = false;
+            }
+        }
+
+        private void rdoChickenBurger_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoChickenBurger.Checked)
+            {
+                lblError.Visible = false;
+            }
         }
     }
 }
