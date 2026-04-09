@@ -80,7 +80,7 @@
             groupMenu.Location = new Point(26, 84);
             groupMenu.Name = "groupMenu";
             groupMenu.Size = new Size(214, 316);
-            groupMenu.TabIndex = 1;
+            groupMenu.TabIndex = 0;
             groupMenu.TabStop = false;
             groupMenu.Text = "메뉴 선택";
             // 
@@ -122,7 +122,8 @@
             rdoChickenBurger.Location = new Point(6, 242);
             rdoChickenBurger.Name = "rdoChickenBurger";
             rdoChickenBurger.Size = new Size(106, 29);
-            rdoChickenBurger.TabIndex = 2;
+            rdoChickenBurger.TabIndex = 3;
+            rdoChickenBurger.TabStop = true;
             rdoChickenBurger.Text = "치킨버거";
             rdoChickenBurger.UseVisualStyleBackColor = true;
             rdoChickenBurger.CheckedChanged += rdoChickenBurger_CheckedChanged;
@@ -135,7 +136,8 @@
             rdoBulgogiBurger.Location = new Point(5, 152);
             rdoBulgogiBurger.Name = "rdoBulgogiBurger";
             rdoBulgogiBurger.Size = new Size(125, 29);
-            rdoBulgogiBurger.TabIndex = 1;
+            rdoBulgogiBurger.TabIndex = 2;
+            rdoBulgogiBurger.TabStop = true;
             rdoBulgogiBurger.Text = "불고기버거";
             rdoBulgogiBurger.UseVisualStyleBackColor = true;
             rdoBulgogiBurger.CheckedChanged += rdoBulgogiBurger_CheckedChanged;
@@ -148,7 +150,8 @@
             rdoHamBurger.Location = new Point(6, 63);
             rdoHamBurger.Name = "rdoHamBurger";
             rdoHamBurger.Size = new Size(87, 29);
-            rdoHamBurger.TabIndex = 0;
+            rdoHamBurger.TabIndex = 1;
+            rdoHamBurger.TabStop = true;
             rdoHamBurger.Text = "햄버거";
             rdoHamBurger.UseVisualStyleBackColor = true;
             rdoHamBurger.CheckedChanged += rdoHamBurger_CheckedChanged;
@@ -164,7 +167,7 @@
             groupOption.Location = new Point(265, 84);
             groupOption.Name = "groupOption";
             groupOption.Size = new Size(155, 250);
-            groupOption.TabIndex = 2;
+            groupOption.TabIndex = 10;
             groupOption.TabStop = false;
             groupOption.Text = "추가 옵션";
             // 
@@ -176,7 +179,8 @@
             chkSauce.Location = new Point(21, 197);
             chkSauce.Name = "chkSauce";
             chkSauce.Size = new Size(114, 29);
-            chkSauce.TabIndex = 3;
+            chkSauce.TabIndex = 14;
+            chkSauce.TabStop = false;
             chkSauce.Text = "소스 추가";
             chkSauce.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +192,8 @@
             chkCheese.Location = new Point(22, 154);
             chkCheese.Name = "chkCheese";
             chkCheese.Size = new Size(114, 29);
-            chkCheese.TabIndex = 2;
+            chkCheese.TabIndex = 13;
+            chkCheese.TabStop = false;
             chkCheese.Text = "치즈 추가";
             chkCheese.UseVisualStyleBackColor = true;
             // 
@@ -200,7 +205,8 @@
             chkCola.Location = new Point(22, 105);
             chkCola.Name = "chkCola";
             chkCola.Size = new Size(69, 29);
-            chkCola.TabIndex = 1;
+            chkCola.TabIndex = 12;
+            chkCola.TabStop = false;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +218,7 @@
             chkPotato.Location = new Point(22, 55);
             chkPotato.Name = "chkPotato";
             chkPotato.Size = new Size(107, 29);
-            chkPotato.TabIndex = 0;
+            chkPotato.TabIndex = 11;
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
             // 
@@ -225,7 +231,7 @@
             grouplistTotal.Location = new Point(449, 84);
             grouplistTotal.Name = "grouplistTotal";
             grouplistTotal.Size = new Size(267, 271);
-            grouplistTotal.TabIndex = 2;
+            grouplistTotal.TabIndex = 4;
             grouplistTotal.TabStop = false;
             grouplistTotal.Text = "주문 내역";
             // 
@@ -248,6 +254,7 @@
             lstOrder.Name = "lstOrder";
             lstOrder.Size = new Size(221, 184);
             lstOrder.TabIndex = 0;
+            lstOrder.TabStop = false;
             lstOrder.SelectedIndexChanged += lstOrder_SelectedIndexChanged;
             // 
             // btnOrder
@@ -255,10 +262,10 @@
             btnOrder.BackColor = Color.Lime;
             btnOrder.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnOrder.ForeColor = Color.Black;
-            btnOrder.Location = new Point(462, 382);
+            btnOrder.Location = new Point(449, 382);
             btnOrder.Name = "btnOrder";
-            btnOrder.Size = new Size(118, 46);
-            btnOrder.TabIndex = 3;
+            btnOrder.Size = new Size(130, 46);
+            btnOrder.TabIndex = 15;
             btnOrder.Text = "주문하기";
             btnOrder.UseVisualStyleBackColor = false;
             btnOrder.Click += btnOrder_Click;
@@ -268,10 +275,10 @@
             btnReset.BackColor = Color.Red;
             btnReset.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
             btnReset.ForeColor = Color.Black;
-            btnReset.Location = new Point(586, 382);
+            btnReset.Location = new Point(585, 382);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(114, 46);
-            btnReset.TabIndex = 4;
+            btnReset.Size = new Size(131, 46);
+            btnReset.TabIndex = 16;
             btnReset.Text = "초기화";
             btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += btnReset_Click;
@@ -290,6 +297,7 @@
             // 
             // Form1
             // 
+            AcceptButton = btnOrder;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(763, 450);
@@ -302,6 +310,7 @@
             Controls.Add(lblMain);
             Name = "Form1";
             Text = "Burger Kiosk v1.0";
+            Load += Form1_Load;
             groupMenu.ResumeLayout(false);
             groupMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picChicken).EndInit();

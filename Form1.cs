@@ -7,6 +7,7 @@ namespace BurgerKiosk
         public Form1()
         {
             InitializeComponent();
+            this.ActiveControl = lblMain;
         }
 
 
@@ -42,7 +43,6 @@ namespace BurgerKiosk
                 lblError.Visible = true;
                 return;
             }
-
 
 
             if (rdoHamBurger.Checked)
@@ -82,6 +82,11 @@ namespace BurgerKiosk
             }
             string totalCostText = $"총 금액: {totalCost:N0}원";
             lblTotalCost.Text = totalCostText;
+
+            groupMenu.Focus(); // 그룹박스에 포커스 설정하여 라디오 버튼이 선택된 상태로 유지되도록 함
+            rdoHamBurger.TabStop = true;
+
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -96,6 +101,8 @@ namespace BurgerKiosk
             lstOrder.Items.Clear();
             lblTotalCost.Text = "총 금액: 0원";
             lblError.Visible = false;
+
+            rdoHamBurger.TabStop = true;
         }
 
         private void rdoHamBurger_CheckedChanged(object sender, EventArgs e)
@@ -120,6 +127,11 @@ namespace BurgerKiosk
             {
                 lblError.Visible = false;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblMain.Focus(); // 폼이 로드될 때 lblMain에 포커스 설정
         }
     }
 }
