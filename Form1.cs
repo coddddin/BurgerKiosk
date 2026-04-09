@@ -10,40 +10,11 @@ namespace BurgerKiosk
             this.ActiveControl = lblMain;
         }
 
-
-
-        private void lstOrder_SelectedIndexChanged(object sender, EventArgs e)
+       
+        private void UpdateOrder()
         {
-
-        }
-
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
+            lstOrder.Items.Clear();
             int totalCost = 0;
-
-            bool isSelected = false;
-
-            // 1. 그룹박스 내의 라디오 버튼들 중 하나라도 체크되었는지 확인
-            foreach (Control control in groupMenu.Controls)
-            {
-                if (control is System.Windows.Forms.RadioButton rb && rb.Checked)
-                {
-                    isSelected = true;
-                    break;
-                }
-            }
-
-            if (isSelected)
-            {
-                lblError.Visible = false;
-            }
-            else
-            {
-
-                lblError.Visible = true;
-                return;
-            }
-
 
             if (rdoHamBurger.Checked)
             {
@@ -60,6 +31,7 @@ namespace BurgerKiosk
                 totalCost += 3000;
                 lstOrder.Items.Add("치킨버거 3,000원");
             }
+
             if (chkPotato.Checked)
             {
                 totalCost += 3500;
@@ -68,7 +40,7 @@ namespace BurgerKiosk
             if (chkCola.Checked)
             {
                 totalCost += 2500;
-                lstOrder.Items.Add("콜라  2,500원");
+                lstOrder.Items.Add("콜라 2,500원");
             }
             if (chkCheese.Checked)
             {
@@ -80,13 +52,45 @@ namespace BurgerKiosk
                 totalCost += 500;
                 lstOrder.Items.Add("소스 500원");
             }
-            string totalCostText = $"총 금액: {totalCost:N0}원";
-            lblTotalCost.Text = totalCostText;
 
-            groupMenu.Focus(); // 그룹박스에 포커스 설정하여 라디오 버튼이 선택된 상태로 유지되도록 함
+            lblTotalCost.Text = $"총 금액: {totalCost:N0}원";
+        }
+
+        private void lstOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            bool isSelected = false;
+
+            foreach (Control control in groupMenu.Controls)
+            {
+                if (control is System.Windows.Forms.RadioButton rb && rb.Checked)
+                {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            if (isSelected)
+            {
+                lblError.Visible = false;
+            }
+            else
+            {
+                lblError.Visible = true;
+                return;
+            }
+
+            // 주문 확정 시 메시지 표시
+            lblError.ForeColor = Color.Blue;
+            lblError.Text = "주문이 확정되었습니다!";
+            lblError.Visible = true;
+            
+            groupMenu.Focus();
             rdoHamBurger.TabStop = true;
-
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -102,36 +106,42 @@ namespace BurgerKiosk
             lblTotalCost.Text = "총 금액: 0원";
             lblError.Visible = false;
 
+            lblError.ForeColor = Color.Red;
+            lblError.Text = "선택된 메뉴가 없습니다.";
+            lblError.Visible = false;
+
             rdoHamBurger.TabStop = true;
         }
 
         private void rdoHamBurger_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoHamBurger.Checked)
-            {
                 lblError.Visible = false;
-            }
+            UpdateOrder();
         }
 
         private void rdoBulgogiBurger_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoBulgogiBurger.Checked)
-            {
                 lblError.Visible = false;
-            }
+            UpdateOrder();
         }
 
         private void rdoChickenBurger_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoChickenBurger.Checked)
-            {
                 lblError.Visible = false;
-            }
+            UpdateOrder();
+        }
+
+        private void chkOption_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateOrder();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblMain.Focus(); // 폼이 로드될 때 lblMain에 포커스 설정
+            lblMain.Focus();
         }
     }
 }

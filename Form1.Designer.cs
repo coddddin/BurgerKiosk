@@ -183,6 +183,8 @@
             chkSauce.TabStop = false;
             chkSauce.Text = "소스 추가";
             chkSauce.UseVisualStyleBackColor = true;
+            chkSauce.CheckedChanged += chkOption_CheckedChanged;
+            
             // 
             // chkCheese
             // 
@@ -196,6 +198,7 @@
             chkCheese.TabStop = false;
             chkCheese.Text = "치즈 추가";
             chkCheese.UseVisualStyleBackColor = true;
+            chkCheese.CheckedChanged += chkOption_CheckedChanged;
             // 
             // chkCola
             // 
@@ -209,6 +212,7 @@
             chkCola.TabStop = false;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
+            chkCola.CheckedChanged += chkOption_CheckedChanged;
             // 
             // chkPotato
             // 
@@ -221,6 +225,7 @@
             chkPotato.TabIndex = 11;
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
+            chkPotato.CheckedChanged += chkOption_CheckedChanged;
             // 
             // grouplistTotal
             // 
